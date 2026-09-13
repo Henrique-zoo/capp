@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "test: bdd",
+      "type": "shell",
+      "command": "cargo",
+      "args": [
+        "test",
+        "--test",
+        "bdd"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$rustc"
+      ]
+    }
+  ]
+}

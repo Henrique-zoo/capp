@@ -1,0 +1,9 @@
+{
+  "rust-analyzer.linkedProjects": [
+    "backend/Cargo.toml"
+  ],
+  "cucumberautocomplete.steps": [
+    "backend/tests/**/*.rs"
+  ],
+  "cucumberautocomplete.syncfeatures": "features/**/*.feature"
+}
