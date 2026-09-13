@@ -1,0 +1,13 @@
+target/
+.rust-analyzer/
+
+.env
+.env.*
+!.env.example
+
+*.log
+tmp/
+temp/
+
+.git/
+.gitignore
