@@ -1,0 +1,46 @@
+# Flutter's Windows runner is built from mobile/windows. Without a compilation
+# database, clangd parses each source from its own directory, so the generated
+# Flutter include paths are relative to each source group.
+If:
+  PathMatch: mobile/windows/runner/.*
+CompileFlags:
+  Add:
+    - -std=c++17
+    - -DUNICODE
+    - -D_UNICODE
+    - -DNOMINMAX
+    - -I..
+    - -I../flutter/ephemeral
+    - -I../flutter/ephemeral/cpp_client_wrapper/include
+
+---
+
+If:
+  PathMatch: mobile/windows/flutter/.*
+CompileFlags:
+  Add:
+    - -std=c++17
+    - -Iephemeral
+    - -Iephemeral/cpp_client_wrapper/include
+
+---
+
+# Linux and Apple native headers/toolchains are unavailable when this workspace
+# is opened on Windows. Suppress their host-incompatible diagnostics while still
+# allowing navigation and syntax highlighting.
+If:
+  PathMatch: mobile/(linux|ios)/.*
+Diagnostics:
+  Suppress: '*'
+Index:
+  Background: Skip
+
+---
+
+# Files below build/ are generated artifacts, not editable project sources.
+If:
+  PathMatch: mobile/build/.*
+Diagnostics:
+  Suppress: '*'
+Index:
+  Background: Skip
