@@ -12,7 +12,7 @@ O projeto é estruturado como um monorepo contendo os diferentes
 componentes da aplicação:
 
     capp/
-
+    │
     ├── backend/
     │
     ├── mobile/
